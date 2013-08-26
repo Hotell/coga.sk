@@ -34,11 +34,7 @@
 @import "../../bower_components/bootstrap/less/variables";
 
 /**************/
-// Transitions
-.transition(@transition) {
-  -webkit-transition: @transition;
-  transition: @transition;
-}
+@import "../../bower_components/bootstrap/less/mixins";
 
 /************/
 @monochrome-color-main: #AE2E11;
@@ -52,11 +48,13 @@
 @analogue-color-3rd: #E87740;
 
 @brand-color: #f16c4e;
+@main-color: #f1dfc8;
 
 @navbar-color: @brand-color;
-@body-bg: #f1dfc8;
+@body-bg: @main-color;
 @jumbotron-bg: #a2d078;
 @jumbotron-color: #404839;
+@jumbotron-bg-alternative: #78ccd0;
 @nav-bg-hover: #fd866c;
 @nav-bg-active: @body-bg;
 @nav-link-hover-bg: @nav-bg-hover;
@@ -65,7 +63,11 @@
 
 @footer-bg: @nav-active-link;
 
-@featurette-heading-color: #40596f;
+@featurette-heading-color: #153959;
+
+@btn-primary-color: @main-color;
+@btn-primary-bg: @brand-color;
+@btn-primary-border: darken(@brand-color,10%);
 
 body {
   background: @body-bg;
@@ -105,6 +107,8 @@ body {
   .nav-pills {
     @media (min-width: @screen-phone) {
       float: right;
+      margin-top: 55px;
+//      background: data-uri("../../img/coga-logo.png");
     }
     > li {
       float: none;
@@ -147,18 +151,28 @@ body {
 }
 
 .jumbotron-custom {
-  background-color: @jumbotron-bg;
+  font-family: "Oxygen", sans-serif;
+  background-color: @jumbotron-bg-alternative;
+  padding-top: 64px;
+  padding-bottom: 64px;
   @media (max-width: @screen-tablet) {
     margin-bottom: 0;
   }
 
   h1 {
+    font-size: 48px;
+    margin-bottom: .5em;
     color: @jumbotron-color;
+    font-family: "Oxygen", sans-serif;
     small {
       color: @heading-color
     }
   }
 
+  .jumbotron-anim{
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .featurette {
@@ -176,6 +190,8 @@ body {
     margin-bottom: 30px;
     .info-section, .world-wide-section, .buy-delivery-section {
       background: @body-bg;
+      padding-left: 25px;
+      padding-right: 25px;
     }
   }
 
@@ -204,12 +220,22 @@ body {
 
 .footer {
   background: @footer-bg;
-  padding: 1em 0;
+  padding: 2em 0;
   p {
     margin-bottom: 0;
   }
   a {
-    color: @brand-color;
+    color: @main-color;
+  }
+  .text-primary{
+    color: @main-color;
+  }
+  .footer-logo{
+    background: data-uri("../../img/rooster-small.png") no-repeat left center;
+    display: inline-block;
+    height: 56px;
+    width: 55px;
+    vertical-align: middle;
   }
 }
 
@@ -229,4 +255,9 @@ body {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
   }
+}
+
+
+.btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
