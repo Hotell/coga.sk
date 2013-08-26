@@ -1,0 +1,232 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/***************/
+
+@import "../../bower_components/bootstrap/less/variables";
+
+/**************/
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+  transition: @transition;
+}
+
+/************/
+@monochrome-color-main: #AE2E11;
+@monochrome-color-light: #DD3914;
+@monochrome-color-lighter: #ED5938;
+@monochrome-color-ultra-light: #F27F66;
+@monochrome-color-super-light: #F6A694;
+
+@analogue-color-base: #FF7253;
+@analogue-color-2nd: #FF9E46;
+@analogue-color-3rd: #E87740;
+
+@brand-color: #f16c4e;
+
+@navbar-color: @brand-color;
+@body-bg: #f1dfc8;
+@jumbotron-bg: #a2d078;
+@jumbotron-color: #404839;
+@nav-bg-hover: #fd866c;
+@nav-bg-active: @body-bg;
+@nav-link-hover-bg: @nav-bg-hover;
+@nav-active-link: #2D2D2D;
+@heading-color: #a43c25;
+
+@footer-bg: @nav-active-link;
+
+@featurette-heading-color: #40596f;
+
+body {
+  background: @body-bg;
+}
+
+.navbar-custom {
+  padding: 2em 0;
+  background: @navbar-color;
+
+  .navbar-brand {
+    color: @nav-bg-active;
+    float: none;
+    display: block;
+    padding: 1.5em 0;
+    margin-bottom: 1em;
+    text-align: center;
+    @media (min-width: @screen-phone) {
+      float: left;
+      display: inline-block;
+      padding: 15px;
+      margin-bottom: 0;
+    }
+  }
+
+  .nav {
+    > li > a {
+      color: @nav-active-link;
+      .transition(all .4s ease-in);
+      &:hover,
+      &:focus {
+        background-color: @nav-bg-hover;
+      }
+    }
+  }
+  // Pills
+  // -------------------------
+  .nav-pills {
+    @media (min-width: @screen-phone) {
+      float: right;
+    }
+    > li {
+      float: none;
+      display: block;
+      text-align: center;
+      + li {
+        margin-left: 0;
+        margin-top: .5em;
+      }
+
+      @media (min-width: @screen-phone) {
+        + li {
+          margin-left: 5px;
+          margin-top: 0;
+        }
+
+        float: left;
+      }
+      //      float: left;
+
+      // Links rendered as pills
+      //      > a {
+      //        border-radius: 5px;
+      //      }
+      //      + li {
+      //        margin-left: 5px;
+      //      }
+
+      // Active state
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: @nav-active-link;
+          background-color: @nav-bg-active;
+        }
+      }
+    }
+  }
+}
+
+.jumbotron-custom {
+  background-color: @jumbotron-bg;
+  @media (max-width: @screen-tablet) {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    color: @jumbotron-color;
+    small {
+      color: @heading-color
+    }
+  }
+
+}
+
+.featurette {
+
+  .world-wide-section {
+    background: lighten(@analogue-color-3rd, 20%);
+  }
+  .buy-delivery-section {
+    background: lighten(@analogue-color-2nd, 20%);
+  }
+  .info-section {
+    background: lighten(@analogue-color-base, 20%);
+  }
+  @media (min-width: @screen-tablet) {
+    margin-bottom: 30px;
+    .info-section, .world-wide-section, .buy-delivery-section {
+      background: @body-bg;
+    }
+  }
+
+  [class^="col-"] {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    > p {
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    @media (min-width: @screen-tablet) {
+      padding-top: 0;
+      padding-bottom: 0;
+      > p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    text-align: center;
+    > h2 {
+      color: @featurette-heading-color;
+    }
+
+  }
+}
+
+.footer {
+  background: @footer-bg;
+  padding: 1em 0;
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    color: @brand-color;
+  }
+}
+
+.back-to-top {
+  &:hover > .glyphicon {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  > .glyphicon {
+    .transition(all .5s ease);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+}

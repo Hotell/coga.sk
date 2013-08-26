@@ -1,0 +1,30 @@
+{
+  "name": "coga.sk",
+  "version": "1.0.0",
+  "main": "index.html app.js app.css",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Hotell <hochelmartin@gmail.com>"
+  ],
+  "description": "CoGa - books retailer",
+  "keywords": [
+    "books"
+  ],
+  "license": "MIT",
+  "homepage": "www.coga.sk",
+  "private": true,
+  "dependencies": {
+    "angular": "v1.2.0-rc.1",
+    "angular-route": "~1.2.0-rc.1",
+    "angular-resource": "v1.2.0-rc.1",
+    "angular-animate": "~1.2.0-rc.1",
+    "bower-angular-touch": "https://github.com/angular/bower-angular-touch",
+    "bootstrap": "~3.0.0"
+  }
+}
