@@ -69,6 +69,14 @@
 @btn-primary-bg: @brand-color;
 @btn-primary-border: darken(@brand-color,10%);
 
+@content-font-family: "Oxygen", sans-serif;
+@img-path: "../../img/";
+
+.center-img{
+  display: block;
+  margin: auto;
+}
+
 body {
   background: @body-bg;
 }
@@ -151,7 +159,7 @@ body {
 }
 
 .jumbotron-custom {
-  font-family: "Oxygen", sans-serif;
+  font-family: @content-font-family;
   background-color: @jumbotron-bg-alternative;
   padding-top: 64px;
   padding-bottom: 64px;
@@ -163,7 +171,7 @@ body {
     font-size: 48px;
     margin-bottom: .5em;
     color: @jumbotron-color;
-    font-family: "Oxygen", sans-serif;
+    font-family: @content-font-family;
     small {
       color: @heading-color
     }
@@ -218,6 +226,46 @@ body {
   }
 }
 
+
+.content{
+  font-family: @content-font-family;
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  .page-header {
+    color: @featurette-heading-color;
+    padding-bottom: ((@line-height-computed / 2) - 1);
+    margin: (@line-height-computed * 2) 0 @line-height-computed;
+    border-bottom: 1px solid @brand-color;
+  }
+  .wrapper{
+    width: 80%;
+    margin: auto;
+  }
+
+
+}
+
+
+.publishers{
+//  background: data-uri("@{img-path}/256/companies.png") no-repeat @jumbotron-bg;
+
+}
+.contact{
+//background: data-uri("@{img-path}/256/location.png") no-repeat @jumbotron-bg;
+background:@jumbotron-bg;
+  address{
+    font-size: 18px;
+    text-align: center;
+    @media (min-width: @screen-tablet) {
+      text-align: left;
+    }
+  }
+}
+
+
+
+/******************* FOOTER *************/
 .footer {
   background: @footer-bg;
   padding: 2em 0;
@@ -231,7 +279,7 @@ body {
     color: @main-color;
   }
   .footer-logo{
-    background: data-uri("../../img/rooster-small.png") no-repeat left center;
+    background: data-uri("@{img-path}rooster-small.png") no-repeat left center;
     display: inline-block;
     height: 56px;
     width: 55px;

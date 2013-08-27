@@ -25,6 +25,10 @@
 /***************/
 /**************/
 /************/
+.center-img {
+  display: block;
+  margin: auto;
+}
 body {
   background: #f1dfc8;
 }
@@ -154,6 +158,34 @@ body {
 .featurette [class^="col-"] > h2 {
   color: #153959;
 }
+.content {
+  font-family: "Oxygen", sans-serif;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.content .page-header {
+  color: #153959;
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #f16c4e;
+}
+.content .wrapper {
+  width: 80%;
+  margin: auto;
+}
+.contact {
+  background: #a2d078;
+}
+.contact address {
+  font-size: 18px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contact address {
+    text-align: left;
+  }
+}
+/******************* FOOTER *************/
 .footer {
   background: #2d2d2d;
   padding: 2em 0;
