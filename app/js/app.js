@@ -3,7 +3,7 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers'])
-    .config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
         $locationProvider.hashPrefix('!');
 
@@ -25,4 +25,16 @@ angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.di
             });
     }]);
 
-angular.module('myApp').run()
+angular.module('myApp')
+    .run([
+        '$rootScope', '$location', '$anchorScroll', '$routeParams',
+        function ($rootScope, $location, $anchorScroll, $routeParams) {
+            $rootScope.$on('$routeChangeSuccess', function (newRoute, oldRoute) {
+                console.log($location.path());
+//                console.log(newRoute);
+                console.log($routeParams);
+//                $location.hash($routeParams.scrollTo);
+//                $anchorScroll();
+            });
+        }
+    ]);

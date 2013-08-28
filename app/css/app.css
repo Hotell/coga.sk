@@ -193,8 +193,15 @@ body {
 .footer p {
   margin-bottom: 0;
 }
-.footer a {
+.footer a,
+.footer .btn-link {
   color: #f1dfc8;
+}
+.footer a:hover,
+.footer .btn-link:hover,
+.footer a:focus,
+.footer .btn-link:focus {
+  text-decoration: none;
 }
 .footer .text-primary {
   color: #f1dfc8;

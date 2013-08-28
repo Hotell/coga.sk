@@ -4,10 +4,10 @@
 
 angular.module('myApp.controllers', [])
     .controller('MainCtrl', [
-        '$scope', '$location',
-        function($scope, $location) {
+        '$scope', '$location', '$anchorScroll',
+        function ($scope, $location, $anchorScroll) {
 
-            $scope.menuActive = function(url, exactMatch) {
+            $scope.menuActive = function (url, exactMatch) {
                 if (exactMatch) {
                     return $location.path() === url;
                 }
@@ -17,7 +17,7 @@ angular.module('myApp.controllers', [])
 
             }
 
-            $scope.isRouteActive = function(page) {
+            $scope.isRouteActive = function (page) {
 //                var regExp = new RegExp("^" + url + "$");
 //                console.log($location.path());
 //                console.log($location.path().match(regExp));
@@ -26,19 +26,26 @@ angular.module('myApp.controllers', [])
                 return page === $location.path().substring(1);
             }
 
+            $scope.gotoMenu = function () {
+//                console.log($location.hash());
+                $location.hash('navigation');
+                // call $anchorScroll()
+                $anchorScroll();
+            }
+
         }
     ])
     .controller('HomeCtrl', [ '$scope', '$location',
-        function($scope, $location) {
+        function ($scope, $location) {
 
-            $scope.go = function ( path ) {
-                $location.path( path );
+            $scope.go = function (path) {
+                $location.path(path);
             };
 
         }
     ])
     .controller('PublishersCtrl', [ '$scope',
-        function($scope) {
+        function ($scope) {
 
             $scope.publishersList = [
                 {
@@ -70,7 +77,7 @@ angular.module('myApp.controllers', [])
         }
     ])
     .controller('ContactCtrl', [
-        function() {
+        function () {
 
         }
     ]);

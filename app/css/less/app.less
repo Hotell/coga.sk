@@ -272,8 +272,11 @@ background:@jumbotron-bg;
   p {
     margin-bottom: 0;
   }
-  a {
+  a,.btn-link {
     color: @main-color;
+    &:hover,&:focus{
+      text-decoration: none;
+    }
   }
   .text-primary{
     color: @main-color;
