@@ -62,6 +62,7 @@
 @heading-color: #a43c25;
 
 @footer-bg: @nav-active-link;
+@footer-height: 120px;
 
 @featurette-heading-color: #153959;
 
@@ -79,6 +80,10 @@
 
 body {
   background: @body-bg;
+  height: 100%;
+}
+html{
+&:extend(body);
 }
 
 .navbar-custom {
@@ -226,6 +231,13 @@ body {
   }
 }
 
+.main-wrap{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -@footer-height;
+  padding: 0 0 @footer-height;
+}
 
 .content{
   font-family: @content-font-family;
@@ -242,8 +254,6 @@ body {
     width: 80%;
     margin: auto;
   }
-
-
 }
 
 
@@ -254,6 +264,9 @@ body {
 .contact{
 //background: data-uri("@{img-path}/256/location.png") no-repeat @jumbotron-bg;
 background:@jumbotron-bg;
+  @media (min-width: @screen-tablet) {
+    min-height: 650px;
+  }
   address{
     font-size: 18px;
     text-align: center;
@@ -267,10 +280,12 @@ background:@jumbotron-bg;
 
 /******************* FOOTER *************/
 .footer {
+  height: @footer-height;
   background: @footer-bg;
   padding: 2em 0;
   p {
     margin-bottom: 0;
+
   }
   a,.btn-link {
     color: @main-color;

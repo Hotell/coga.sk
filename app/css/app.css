@@ -29,8 +29,10 @@
   display: block;
   margin: auto;
 }
-body {
+body,
+html {
   background: #f1dfc8;
+  height: 100%;
 }
 .navbar-custom {
   padding: 2em 0;
@@ -158,6 +160,13 @@ body {
 .featurette [class^="col-"] > h2 {
   color: #153959;
 }
+.main-wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -120px;
+  padding: 0 0 120px;
+}
 .content {
   font-family: "Oxygen", sans-serif;
   padding-top: 2em;
@@ -176,6 +185,11 @@ body {
 .contact {
   background: #a2d078;
 }
+@media (min-width: 768px) {
+  .contact {
+    min-height: 650px;
+  }
+}
 .contact address {
   font-size: 18px;
   text-align: center;
@@ -187,6 +201,7 @@ body {
 }
 /******************* FOOTER *************/
 .footer {
+  height: 120px;
   background: #2d2d2d;
   padding: 2em 0;
 }
